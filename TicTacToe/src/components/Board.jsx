@@ -1,5 +1,7 @@
 import Box from "./Box";
 import { useState } from "react";
+import { Scores } from "./Scores";
+import Button from "./Button";
 
 const Board = () => {
   //Winning conditions
@@ -17,6 +19,7 @@ const Board = () => {
   const [board, setBoard] = useState(EmptyBoard());
   const [nextPlayer, setNextPlayer] = useState(true);
   const [scores, setScores] = useState({ xScore: 0, oScore: 0 });
+  const [gameState, setGameState] = useState(false);
 
   //handle Click function
   function handleClick(index) {
@@ -30,8 +33,6 @@ const Board = () => {
     });
 
     let whoWon = winner(newBoard);
-
-    console.log(whoWon);
 
     if (whoWon === "X") {
       let { xScore } = scores;
@@ -47,6 +48,11 @@ const Board = () => {
     setBoard(newBoard);
     //current player with a boolean
     setNextPlayer((prev) => !prev);
+
+    whoWon &&
+      setTimeout(() => {
+        resetGame();
+      }, 300);
   }
 
   //winning function
@@ -60,13 +66,20 @@ const Board = () => {
     }
   }
 
-  console.log(scores);
+  function resetGame() {
+    setBoard(EmptyBoard());
+    setGameState(false);
+  }
 
   return (
-    <div className="board">
-      {board.map((value, ind) => (
-        <Box key={ind} value={value} onCklickFunc={() => handleClick(ind)} />
-      ))}
+    <div>
+      <Scores scores={scores} whosNext={nextPlayer} />
+      <div className="board">
+        {board.map((value, ind) => (
+          <Box key={ind} value={value} onCklickFunc={() => handleClick(ind)} />
+        ))}
+        <Button onReset={resetGame} />
+      </div>
     </div>
   );
 };
