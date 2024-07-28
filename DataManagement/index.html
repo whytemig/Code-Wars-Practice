@@ -10,7 +10,7 @@
     <div id="app">
       <header>
         <h1>Data Employee Management</h1>
-        <button class="addEmployee">Add Employees</button>
+        <button class="addEmployeeBtn">Add Employees</button>
       </header>
 
       <div class="employees">
@@ -24,6 +24,38 @@
           <div class="employee-names-info"></div>
         </div>
       </div>
+    </div>
+    <div class="addEmployee">
+      <form class="create-employee">
+        <div>
+          <input
+            type="text"
+            name="firstName"
+            placeholder="FirstName"
+            required
+          />
+          <input type="text" name="lastName" placeholder="LastName" required />
+        </div>
+
+        <input type="text" name="imageUrl" placeholder="Image URL (Optional)" />
+        <input type="email" name="email" placeholder="Email" required />
+        <input
+          type="number"
+          name="contactNumber"
+          placeholder="Contact"
+          required
+        />
+        <input type="number" name="salary" placeholder="Salary" required />
+        <input type="text" name="address" placeholder="Address" required />
+        <input
+          type="date"
+          name="dob"
+          placeholder="Date of Birth"
+          class="addEmployee-create--dob"
+          required
+        />
+        <input type="submit" class="addEmployee-submit" value="Submit" />
+      </form>
     </div>
     <script src="./index.js"></script>
   </body>
