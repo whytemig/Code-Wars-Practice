@@ -60,7 +60,10 @@ async function getData() {
       employeeObject.imageUrl ||
       "https://cdn-icons-png.flaticon.com/512/0/93.png";
 
-    console.log(employeeObject);
+    employee.push(employeeObject);
+    renderEmployees();
+    createEmployeeForm.reset();
+    addEmployeeModal.style.display = "none";
   });
 
   // ----------------------
@@ -72,6 +75,20 @@ async function getData() {
       renderEmployees();
       singleEmployee();
     }
+
+    if (e.target.tagName === "I") {
+      employee = employee.filter(
+        (element) => String(element.id) !== e.target.parentNode.id
+      );
+    }
+
+    if (String(selectedEmployeeById) === e.target.parentNode.id) {
+      selectedEmployeeById = employee[0]?.id || -1;
+      selectedEmployee = employee[0] || {};
+      singleEmployee();
+    }
+
+    renderEmployees();
   });
 
   //render employees within the employee div element
@@ -95,6 +112,11 @@ async function getData() {
 
   //render One Single Employee
   function singleEmployee() {
+    if (selectedEmployeeById === -1) {
+      employeeNameInfo.innerHTML = "";
+      return;
+    }
+
     employeeNameInfo.innerHTML = `<img src="${selectedEmployee?.imageUrl}"/>
      <span class="employees-single--heading">
       ${selectedEmployee.firstName} ${selectedEmployee.lastName} (${selectedEmployee.age})
