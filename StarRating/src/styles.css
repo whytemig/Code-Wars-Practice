@@ -1,0 +1,24 @@
+body {
+  background-color: rgb(41, 40, 40);
+  color: #fff;
+}
+
+.container {
+  width: 60%;
+  margin: 3% auto;
+  text-align: center;
+}
+
+.container > h1 {
+  text-align: center;
+}
+
+.star {
+  font-size: 50px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.rate {
+  color: yellow;
+}
