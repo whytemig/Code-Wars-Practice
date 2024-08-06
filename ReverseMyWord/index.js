@@ -28,7 +28,7 @@ function spinWords(string) {
 function spinWords(words) {
   return words
     .split(" ")
-    .map((w) => (w.length < 5 ? w : w.split("").reverse().join("")))
+    .map((w) => (w.length <= 5 ? w : w.split("").reverse().join("")))
     .join(" ");
 }
 

@@ -27,7 +27,6 @@ stars.forEach((star, i) => {
     stars.forEach((st, j) => {
       if (j >= count) {
         st.classList.remove("rate");
-        console.log(count);
       }
     });
     updateCountDisplay(count); // Reset the display to the selected count
