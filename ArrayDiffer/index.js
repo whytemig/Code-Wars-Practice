@@ -11,13 +11,11 @@ arrayDiff([1,2,2,2,3],[2]) == [1,3]
 
 //My Code....
 function arrayDiff(a, b) {
-  let newArray = a; // Start with array a
-
   for (let i = 0; i < b.length; i++) {
-    newArray = newArray.filter((num) => num !== b[i]); // Filter out elements in b
+    a = a.filter((num) => num !== b[i]); // Filter out elements in b
   }
 
-  return newArray; // Return the filtered array
+  return a; // Return the filtered array
 }
 
 // My Code Adjusted .....
