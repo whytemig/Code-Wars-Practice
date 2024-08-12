@@ -30,4 +30,28 @@ function digitalRoot(n) {
   return n;
 }
 
-// No experience with Recursion yet
+//  with Recursion my Code
+
+function digitalRoot(n) {
+  if (n < 10) return n;
+  let sum = 0;
+  n = n.toString().split("");
+
+  for (let i = 0; i < n.length; i++) {
+    sum += parseInt(n[i]);
+  }
+
+  if (sum > 10) return digitalRoot(sum);
+}
+
+//  with Recursion
+
+function digital_root(n) {
+  n = eval(n.toString().split("").join("+"));
+
+  if (n > 9) {
+    return digital_root(n);
+  }
+
+  return n;
+}
