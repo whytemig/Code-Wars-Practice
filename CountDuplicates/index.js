@@ -25,7 +25,7 @@ const duplicateCount = (string) => {
   let answerArray = [];
 
   for (let i = 0; i < lowerTxt.length; i++) {
-    if (lowerTxt[i] === lowerTxt[i + 2] && !answerArray.includes(lowerTxt[i])) {
+    if (lowerTxt[i] === lowerTxt[i + 1] && !answerArray.includes(lowerTxt[i])) {
       answerArray.push(lowerTxt[i]);
     }
   }
